@@ -71,7 +71,7 @@
 \subtitle{or What is a Tensor?}
 
 \author{Lorne Whiteway \\ lorne.whiteway@star.ucl.ac.uk}
-\date{31 January 2017}
+\date{31 January \& 7 February 2017}
 
 % If you wish to uncover everything in a step-wise fashion, uncomment
 % the following command: 
@@ -487,7 +487,7 @@ But isn't the derivative the same as the gradient? And isn't the gradient a vect
 
 Recall the definition of gradient - it's the direction of steepest ascent. To make this definition work you need metric information, and we are not assuming that we have this.
 
-\textit{In the presence of a metric} we can find a vector that \textit{represents} a covector (by pointing perpendicular to the level sets) - in GR this is called `raising and lowering indices'. This technique gives us the gradient (a vector). But the covector definition of the derivative is more fundamental.
+\textit{In the presence of a metric} we can find a vector that \textit{represents} a covector (by pointing perpendicular to the level sets) - in GR this is called `raising an index'. This technique gives us the gradient (a vector). But the covector definition of the derivative is more fundamental.
 
 \end{frame}
 
@@ -507,23 +507,73 @@ No need! There is a \textit{single} vector space, the \textit{tensor product} $U
 
 \end{frame}
 
+\begin{frame}{Tensor product}
+
+The tensor product $U \otimes V$ contains elements $u \otimes v$. Think of $u \otimes v$ as a version of the ordered pair $(u, v)$, but with some information removed. This `removal of information' means that for example $u \otimes 2v = 2u \otimes v$.
+
+Thus there are fewer $u \otimes v$ elements than there are $(u, v)$ elements. As a result, a generic element of $U \otimes V$ must be written as a sum $\sum u_i \otimes v_i$.
+
+\end{frame}
+
+\begin{frame}{The only bit of Homological Algebra that you will need}
+
+\begin{equation*}
+\begin{split}
+U^* \otimes V & \cong Hom(U, V) \\
+& \equiv \text{linear maps from $U$ to $V$}
+\end{split}
+\end{equation*}
+
+This makes sense: an element $f \otimes v$ in $U^* \otimes V$ can map $v \in U$ to $f(u) v \in V$.
+
+\end{frame}
+
+\begin{frame}{Cotangent bundle squared}
+
+Similarly $V^* \otimes V^* \cong \text{bilinear maps from } V \times V \text{ to } \mathbb{R}$.
+
+What well-known structure in GR is a section of the $T(M)^* \otimes T(M)^*$ bundle? This object needs to act linearly on \textit{pairs} of vectors to return a scalar.
+
+\end{frame}
+
 \begin{frame}{Curvature}
 
 Recall definition of curvature (due to Riemann).
 
 You have three friends, each with a vector. The first friend says `go for a walk; leave in the direction that I am pointing'. The second says `and come back along the direction that I'm pointing'. And the third says `as you walk, hold a wand in the direction that I'm pointing \textit{and try not to change its direction}'.
 
-Of course when you get back you discover that the wand is now pointing in a different direction - this is the effect of curvature.
+Of course when you get back you discover that despite your best efforts the wand is now pointing in a different direction - this is the effect of curvature.
 
 \end{frame}
 
 \begin{frame}{Curvature as a tensor}
 
-So to describe this we need a machine that takes in three vectors (one from each friend) and gives one vector back (the final direction of the wand). We achieve this with (the tensor product of) three covectors and one vector.
+So to describe this we need a machine that takes in three vectors (one from each friend) and gives one vector back (the amount by which the wand has been deflected). We achieve this with (the tensor product of) three covectors and one vector.
 
 Thus curvature is a section of the $T^* \otimes T^* \otimes T^* \otimes T$ bundle.
 
  In other words it's a $(1,3)$ tensor field.
+
+\end{frame}
+
+\begin{frame}{Can you read this?}
+
+\includegraphics[width=11cm]{curvature_definition.png}
+
+(from \url{https://en.wikipedia.org/wiki/Connection_(vector_bundle)}).
+
+Here $\Gamma$ means `sections of', while you can set $E=TM$. Furthermore $\bigwedge^2 V$ is like $V \otimes V$ (but with additional rule that $v_1 \otimes v_2 = -v_2 \otimes v_1$ (as your first two friends can swap places)). Thus the text says that curvature is a section of the $T^* \otimes T^* \otimes T^* \otimes T$ bundle.
+
+\end{frame}
+
+\begin{frame}{Summary}
+
+\begin{itemize}
+\item{Definition of \textit{vector bundle} and of \textit{section}.}
+\item{Bundles can be `twisted'; the topology can then place restrictions on the sections. This can arise even in simple settings (e.g. $TS^2$).}
+\item{Derivative of a scalar function is a section of the cotangent bundle.}
+\item{The central mathematical objects of GR are machines that act multi-linearly on tangent vectors to spacetime $M$. They are therefore sections of bundles that have been derived from $TM$.}
+\end{itemize}
 
 \end{frame}
 
